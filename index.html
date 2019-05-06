@@ -9,32 +9,46 @@
 
     <!-- 存储服务 -->
     <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script>
+    <script src="//captcha.luosimao.com/static/js/api.js"></script>
 </head>
 
 <body>
     <h1>测试</h1>
 
 
+    <div>
+        <label>留下的你的email</label>
+        <input type="text" id="email">
+        <input type="button" onclick="saveEmail">
+    </div>
+    <div data-lang="en" class="l-captcha" data-callback="getResponse" data-site-key="4c2a72b1170f63dccea4c28354ed251d">
+    </div>
 
 </body>
 
 <script>
-    // 存储服务
-    var APP_ID = 'brPz27Is9UYjOtUxun3LAjeM-gzGzoHsz';
-    var APP_KEY = 'EiaCRNvdbKhX4VzkMSsAcwnt';
+    function getResponse(resp) {
+        console.log(resp); // resp 即验证成功后获取的值
+    }
 
-    AV.init({
-        appId: APP_ID,
-        appKey: APP_KEY
-    });
+    function saveEmail() {
+        // 存储服务
+        var APP_ID = 'brPz27Is9UYjOtUxun3LAjeM-gzGzoHsz';
+        var APP_KEY = 'EiaCRNvdbKhX4VzkMSsAcwnt';
 
-    var TestObject = AV.Object.extend('TestObject');
-    var testObject = new TestObject();
-    testObject.save({
-        words: 'Hello World!'
-    }).then(function (object) {
-        alert('LeanCloud Rocks!');
-    })
+        AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY
+        });
+
+        var TestObject = AV.Object.extend('TestObject');
+        var testObject = new TestObject();
+        testObject.save({
+            words: 'Hello World!'
+        }).then(function (object) {
+            alert('LeanCloud Rocks!');
+        })
+    }
 </script>
 
 </html>
