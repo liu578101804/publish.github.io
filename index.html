@@ -6,10 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <!-- 存储服务 -->
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script>
 </head>
 
 <body>
     <h1>测试</h1>
+
+
+
 </body>
+
+<script>
+    // 存储服务
+    var APP_ID = 'brPz27Is9UYjOtUxun3LAjeM-gzGzoHsz';
+    var APP_KEY = 'EiaCRNvdbKhX4VzkMSsAcwnt';
+
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+
+    var TestObject = AV.Object.extend('TestObject');
+    var testObject = new TestObject();
+    testObject.save({
+        words: 'Hello World!'
+    }).then(function (object) {
+        alert('LeanCloud Rocks!');
+    })
+</script>
 
 </html>
