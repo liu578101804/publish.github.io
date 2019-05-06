@@ -9,3 +9,7 @@
 .book-list .title h1 {
     font-size: 1.6rem;
 }
+
+iframe {
+    height: inherit !important;
+}
