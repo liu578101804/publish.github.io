@@ -1,0 +1,11 @@
+.item {
+    margin-bottom: 1rem;
+}
+
+.book-list .title {
+    text-align: center;
+}
+
+.book-list .title h1 {
+    font-size: 1.6rem;
+}
