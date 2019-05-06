@@ -28,8 +28,7 @@ function request(email) {
             toastr.success('订阅成功', "Success");
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest, textStatus, errorThrown);
-            toastr.error(errorThrown, "Inconceivable");
+            toastr.error("网络异常", "Inconceivable");
         }
     });
 }
