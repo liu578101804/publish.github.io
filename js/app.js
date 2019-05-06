@@ -26,6 +26,9 @@ function request(email) {
         },
         success: function () {
             toastr.success('订阅成功', "Success");
+        },
+        error: function (err) {
+            toastr.error(err, "Inconceivable");
         }
     });
 }
